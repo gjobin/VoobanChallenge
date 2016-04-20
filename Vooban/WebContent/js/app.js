@@ -2,7 +2,7 @@
  * Module principal de l'application Vooban.
  */
 (function() {
-    var app = angular.module('vooban', []);
+    var app = angular.module('vooban', ['uiGmapgoogle-maps']);
 
     /*
      * Controlleur de l'affichage des suggestions de villes.
@@ -60,6 +60,8 @@
                             $scope.empty();
                         }
                     };
+                    
+                    $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
                 }
             ]);
 })();

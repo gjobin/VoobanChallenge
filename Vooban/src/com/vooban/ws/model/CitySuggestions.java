@@ -38,6 +38,7 @@ public class CitySuggestions {
 		// Modeling for response
 		for (City city : cities) {
 			CitySuggestion cs = new CitySuggestion();
+			cs.setId(city.getId().toString());
 			cs.setName(city.getName() + NAME_SEP + city.getStateProv() + NAME_SEP + city.getCountry());
 			cs.setLatitude(city.getGpsLat());
 			cs.setLongitude(city.getGpsLong());
