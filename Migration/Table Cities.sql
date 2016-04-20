@@ -1,0 +1,61 @@
+ALTER TABLE VOOBAN.CITIES
+ DROP PRIMARY KEY CASCADE;
+
+DROP TABLE VOOBAN.CITIES CASCADE CONSTRAINTS;
+
+CREATE TABLE VOOBAN.CITIES
+(
+  ID         NUMBER(10),
+  NAME       VARCHAR2(300 CHAR)                 NOT NULL,
+  GPS_LAT    NUMBER(8,5)                        NOT NULL,
+  GPS_LONG   NUMBER(8,5)                        NOT NULL,
+  COUNTRY    VARCHAR2(2 CHAR)                   NOT NULL,
+  STATEPROV  VARCHAR2(10 CHAR)                  NOT NULL
+)
+TABLESPACE SYSTEM
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MAXSIZE          UNLIMITED
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+MONITORING;
+
+
+CREATE UNIQUE INDEX VOOBAN.CITIES_PK ON VOOBAN.CITIES
+(ID)
+LOGGING
+TABLESPACE SYSTEM
+PCTFREE    10
+INITRANS   2
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MAXSIZE          UNLIMITED
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           );
+
+ALTER TABLE VOOBAN.CITIES ADD (
+  CONSTRAINT CITIES_PK
+  PRIMARY KEY
+  (ID)
+  USING INDEX VOOBAN.CITIES_PK
+  ENABLE VALIDATE);

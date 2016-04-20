@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faceted-project>
+  <runtime name="Payara 4 at localhost"/>
+  <secondary-runtime name="GlassFish 4"/>
+  <fixed facet="jst.ear"/>
+  <installed facet="jst.ear" version="7.0"/>
+</faceted-project>
